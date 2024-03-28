@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Volunteer } from '../volunteer.model';
+import { ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-edit-volunteer',
@@ -8,7 +9,9 @@ import { Volunteer } from '../volunteer.model';
   styleUrl: './edit-volunteer.component.scss'
 })
 export class EditVolunteerComponent {
-   
+  //  constructor(private _acr:ActivatedRoute){
+  //     this._acr.paramMap.get()
+  //  }
    private _volunteer?:Volunteer;
    public get volunteer():Volunteer|undefined{
           return this._volunteer;

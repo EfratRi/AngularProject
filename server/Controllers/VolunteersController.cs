@@ -12,9 +12,14 @@ public class VolunteersController:ControllerBase{
     Ifile file;
     string path = Path.Combine(Environment.CurrentDirectory, "File", "volunteers.json");
     private static readonly List<Volunteer> volunteers=new List<Volunteer>(){
-        new Volunteer(){name="Avi",id="147"},
-        new Volunteer(){name="Dani",id="855"}
+        new Volunteer(){name="Avi",id="147",phone="0527489653"},
+        new Volunteer(){name="Dani",id="855",phone="0527489653"}
     };
+    // private []Volunteer volunteer=new volunteer[{
+    //    {name="Avi",id="147",phone="0527489653"},
+    //     {name="Dani",id="855",phone="0527489653"}
+    // }];
+
     public VolunteersController(Ifile f){
         file=f;
     }
@@ -33,5 +38,6 @@ public class VolunteersController:ControllerBase{
             v[i++]=vol;
        }
         return v;
+    // return volunteers;
     }
 }

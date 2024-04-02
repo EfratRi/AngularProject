@@ -9,7 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const APP_ROUTERS :Route[]=[
   { path: "volunteers", component: VolunteersListComponent },
-  { path: "editVolunteer/:volunteer", component: EditVolunteerComponent }
+  { path: "volunteers/editVolunteer/:volunteer", component: EditVolunteerComponent }
 ]
 
 @NgModule({

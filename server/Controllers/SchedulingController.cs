@@ -9,22 +9,16 @@ namespace scheduling.controllers;
 [ApiController]
 [Route("api/[controller]")]
 public class SchedulingController:ControllerBase{
-    // Ifile file;
-    // string path = Path.Combine(Environment.CurrentDirectory, "File", "volunteers.json");
-    // public VolunteersController(Ifile f){
-    //     file=f;
-    // }
-
-    private int[] days={0,0,0,0,0};
+    
+    private string[] days={"147","741","855","557","669"};
 
     [HttpGet]
-    public int[] Get(){
+    public string[] Get(){
         return days;
     }
     [HttpPut("{day}")]
-    public int[] Put(int day,[FromBody]int id){
+    public string[] Put(int day,[FromBody]string id){
         days[day]=id;
         return days;
     }
-    
 }

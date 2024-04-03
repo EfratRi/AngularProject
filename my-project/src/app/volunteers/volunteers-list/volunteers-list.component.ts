@@ -15,7 +15,7 @@ export class VolunteersListComponent {
   constructor (private volunteerService:VolunteersService,private router:Router){
     // this.ngOnInit();
         volunteerService.getVoluntreesFromServer().subscribe(
-        volunteers=>{volunteers[0].days[3]=true,this.voluteersList=volunteers;console.log(this.voluteersList);
+        volunteers=>{this.voluteersList=volunteers;console.log(this.voluteersList);
         },
         err=>{console.log(err);});
   }

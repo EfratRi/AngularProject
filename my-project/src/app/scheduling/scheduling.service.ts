@@ -12,8 +12,8 @@ export class SchedulingService {
   // getVoluteersByDay=(day:Number)=>{
 
   // }
-  getScheduling=():Observable<Number []>=>{
-    return this._http.get<Number []>("/api/Scheduling");
+  getScheduling=():Observable<string []>=>{
+    return this._http.get<string []>("/api/Scheduling");
   }
   saveScheduling=()=>{
 

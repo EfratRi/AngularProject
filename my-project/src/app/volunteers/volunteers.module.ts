@@ -6,15 +6,16 @@ import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.componen
 import { HttpClientModule } from '@angular/common/http';
 import { VolunteersService } from './volunteers.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SchedulingModule } from '../scheduling/scheduling.module';
 
 const APP_ROUTERS :Route[]=[
   { path: "volunteers", component: VolunteersListComponent },
-  { path: "volunteers/editVolunteer/:volunteer", component: EditVolunteerComponent }
+  { path: "editVolunteer", component: EditVolunteerComponent }
 ]
 
 @NgModule({
   declarations: [VolunteersListComponent,EditVolunteerComponent],
-  imports: [CommonModule, RouterModule.forChild(APP_ROUTERS),HttpClientModule,ReactiveFormsModule],
+  imports: [CommonModule, RouterModule.forChild(APP_ROUTERS),HttpClientModule,ReactiveFormsModule,SchedulingModule],
   providers:[VolunteersService]
 })
 export class VolunteersModule { }

@@ -4,7 +4,7 @@ import { Route, RouterModule } from '@angular/router';
 import { SchedulindVolunteersComponent } from './schedulind-volunteers/schedulind-volunteers.component';
 
 const APP_ROUTERS :Route[]=[
-   { path: "", component: SchedulindVolunteersComponent },
+  //  { path: "", component: SchedulindVolunteersComponent },
   { path: "scheduling", component: SchedulindVolunteersComponent }]
 
 @NgModule({

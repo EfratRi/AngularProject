@@ -13,8 +13,10 @@ export class VolunteersService {
 getVoluntreesFromServer=():Observable<Volunteer []>=>{
   return this._http.get<Volunteer []>("/api/Volunteers");
 }
-
-updateVolunteer=(id:string,volunteerToSave:Volunteer):Observable<Volunteer []>=>{
-    return this._http.put<Volunteer []> (`/api/Volunteers/${id}`,volunteerToSave)
+getVolunteerById=(id:string):Observable<Volunteer|undefined>=>{
+  return this._http.get<Volunteer|undefined>(`/api/Volunteers/${id}`);
+}
+updateVolunteer=(volunteerToSave:Volunteer):Observable<Volunteer []>=>{
+    return this._http.put<Volunteer []> ("/api/Volunteers",volunteerToSave)
 }
 }

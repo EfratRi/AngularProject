@@ -1,23 +1,11 @@
 <p>edit-volunteer works!</p>
 volunteerForm Value: {{volunteerForm.value | json}}
-<div class="card" *ngIf="volunteer else noSelected">
+<div class="card" *ngIf="volunteer">
     <div class="card-header">
         {{volunteer.id}}: {{volunteer.name}}
     </div>
     <div class="card-body">
         <form [formGroup]="volunteerForm">
-            <!-- <div class="form-group">
-                <label for="volunteerName">Name:</label>
-                <input id="volunteerName" class="form-control" type="text" name="name" formControlName="name" />
-                <ng-container *ngIf="volunteerForm.controls['name'].errors && volunteerForm.controls['name'].touched">
-                    <div class="alert alert-danger" *ngIf="volunteerForm.controls['name'].errors['required']">This field is
-                        required
-                    </div>
-                    <div class="alert alert-danger" *ngIf="volunteerForm.controls['name'].errors['minlength']">This field
-                        must be at
-                        least 3 chars</div>
-                </ng-container>
-            </div> -->
             <div [formGroup]="volunteerForm">
                 <input formControlName="Sunday" type="checkbox" name="days" id="Sunday">Sunday
                 <input formControlName="Monday" type="checkbox" name="days" id="Monday">Monday
@@ -29,16 +17,4 @@ volunteerForm Value: {{volunteerForm.value | json}}
         <button class="btn btn-primary" (click)="saveVolunteerDetails()">Save</button>
     </div>
 </div>
-<ng-template #noSelected>
-    <div>
-        No Card Selected
-    </div>
-</ng-template>
 
-<!-- <div>days:
-    Sunday: {{Sunday}}
-    Monday: {{Monday}}
-    Tuesday: {{Tuesday}}
-    Wednesday: {{Wednesday}}
-    Thursday: {{Thursday}}
-</div> -->

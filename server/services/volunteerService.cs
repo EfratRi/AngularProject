@@ -10,7 +10,6 @@ public class VolunteerService{
         new Volunteer{name="Nati",id="557",phone="0527489653",days=new bool[5]},
         new Volunteer{name="Yossi",id="357",phone="0527489653",days=new bool[5]},
         new Volunteer{name="Levi",id="741",phone="0527489653",days=new bool[5]}
-        // new Volunteer{id=3,first_name="shosh",last_name="kkk",days_work=new bool[5]}
     };
 
     public static Volunteer[] GetAll()=>volunteers;

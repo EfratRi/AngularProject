@@ -9,13 +9,10 @@ export class SchedulingService {
 
   constructor(private _http:HttpClient) { }
 
-  // getVoluteersByDay=(day:Number)=>{
-
-  // }
   getScheduling=():Observable<string []>=>{
     return this._http.get<string []>("/api/Scheduling");
   }
-  saveScheduling=()=>{
-
+  saveScheduling=(days:string[]):Observable<string []>=>{
+    return this._http.put<string []>("/api/Scheduling",days);
   }
 }

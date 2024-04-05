@@ -1,17 +1,22 @@
 <p>schedulind-volunteers works!</p>
-<ul class="list-group">
-    <li [id]="" *ngFor="let v in volunteer1" class="list-group-item"> 
-        <div class="row">
-            <div class="col-1">
-               v.name
-            </div>
-            <!-- <div class="col-3">
-                
-            </div> -->
-            <!-- <div class="col-3">
-                {{voluteer.phone}}
-            </div> -->
-            <!-- <input type="radio" name="radio" id="v.id">v.name -->
-        </div>
-    </li>
-</ul>
+<form [formGroup]="schedulingForm">
+<table class="table table-sm" [ariaDisabled]="flag">
+    <thead>
+        <tr>
+        <th *ngFor="let day of days;let i=index" scope="col-4">
+        <p>{{daysOfWeek[i]}}</p>
+        </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td *ngFor="let day of daysOfWeek;let i=index">
+                <select name="" id="" [formControlName]="i" >
+                    <option *ngFor="let v of this.getVolunteersPerDay(i)" [value]="v.id" >{{v.name}}</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-primary" (click)="saveScheduling()">Save scheduling</button>
+</form>

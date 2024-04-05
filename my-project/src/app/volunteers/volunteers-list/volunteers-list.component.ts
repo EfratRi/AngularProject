@@ -19,11 +19,9 @@ export class VolunteersListComponent {
         },
         err=>{console.log(err);});
   }
-
-  selectedVolunteer?:Volunteer;
   editVolunteer=(volunteer:Volunteer)=>{
-    this.selectedVolunteer=volunteer;
      this.router.navigate(['/editVolunteer',{volunteer:JSON.stringify(volunteer)}])
+    //  this.router.navigate(['/editVolunteer',volunteer.id])
   }  
   // ngOnInit(){
   //   this.volunteerService.getVoluntreesFromServer().subscribe(

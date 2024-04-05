@@ -32,7 +32,6 @@ export class EditVolunteerComponent {
     //   })
     //   },
     //   err=>console.log(err)
-      
     // )
     this._volunteer=JSON.parse(this._acr.snapshot.paramMap.get('volunteer') ?? '')
     this.volunteerForm=new FormGroup({
@@ -56,16 +55,13 @@ export class EditVolunteerComponent {
    public get volunteer():Volunteer|undefined{
           return this._volunteer;
    }
-  //  @Input()
-          
 
-  //  @Output()
-  //  onSaveVolunteer:EventEmitter<Volunteer>=new EventEmitter<Volunteer>();
+   flag:boolean=true;
+   flag1:boolean=false;
    volunteerForm:FormGroup=new FormGroup({});
    saveVolunteerDetails=():void=>{
     // this.volunteer=this.volunteerForm.value;
     if(this.volunteer!=undefined){
-      console.log("not undefined");
       this.volunteer.days[0]=this.volunteerForm.controls['Sunday'].value;
       this.volunteer.days[1]=this.volunteerForm.controls['Monday'].value;
       this.volunteer.days[2]=this.volunteerForm.controls['Tuesday'].value;
@@ -76,40 +72,25 @@ export class EditVolunteerComponent {
       this._scheduling.getScheduling().subscribe(
         data=>{this.days=data;
           if(this.volunteer!=undefined){
-            if(this.days[0]==this.volunteer.id&&this.volunteer.days[0]==false){
-              alert("can't save")
-              return
-            }
-            if(this.days[1]==this.volunteer.id&&this.volunteer.days[1]==false){
-              alert("can't save")
-              return
-            }
-            if(this.days[2]==this.volunteer.id&&this.volunteer.days[2]==false){
-              alert("can't save")
-              return
-            }
-            if(this.days[3]==this.volunteer.id&&this.volunteer.days[3]==false){
-              alert("can't save")
-              return
-            }
-            if(this.days[4]==this.volunteer.id&&this.volunteer.days[4]==false){
-              alert("can't save")
-              return
+            for(let i=0;i<5;i++){
+              if(this.days[i]==this.volunteer.id&&this.volunteer.days[i]==false){
+                alert("can't save")
+                this.flag=false;
+                this._router.navigate(['/volunteers'])
+              }
             }
           }
-          
-      }
-      )
-      this._volunteerService.updateVolunteer(this.volunteer).subscribe(
+          this.flag1=true;
+      }) 
+      if(this.flag==true&&this.flag1==true){
+        this._volunteerService.updateVolunteer(this.volunteer).subscribe(
         data=>{
           console.log("in edit");   
           console.log(data);
           this._router.navigate(['/volunteers'])
         }
-      );    
-    }
-    else{
-      console.log("undefined");
-    }  
+      );
+      }   
+    } 
    }
 }

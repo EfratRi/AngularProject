@@ -28,7 +28,7 @@ public class VolunteersController:ControllerBase{
     public Volunteer[] Get(){
         return VolunteerService.GetAll();
     }
-    [HttpGet("{id}")]
+    [HttpGet("byId/{id}")]
     public Volunteer? GetById(string id){
         return VolunteerService.GetById(id);
     }

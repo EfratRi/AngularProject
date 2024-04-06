@@ -7,12 +7,8 @@ import { VolunteersModule } from "./volunteers/volunteers.module";
 import { HttpClientModule } from "@angular/common/http";
 import { SchedulindVolunteersComponent } from "./scheduling/schedulind-volunteers/schedulind-volunteers.component";
 const APP_ROUTERS :Route[]=[
-    // {path:"",component:AppComponent},
     {path:"volunteers",loadChildren:()=>import("./volunteers/volunteers.module").then(m=>m.VolunteersModule)},
     {path:"scheduling",loadChildren:()=>import("./scheduling/scheduling.module").then(m=>m.SchedulingModule)}
-
-    // {path:"volunteers",component:VolunteersListComponent},
-    // {path:"scheduling",component:SchedulindVolunteersComponent}
 ]
 @NgModule({
     declarations:[AppComponent],

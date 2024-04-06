@@ -3,6 +3,7 @@ import { SchedulingService } from '../scheduling.service';
 import { Volunteer } from '../../volunteers/volunteer.model';
 import { VolunteersService } from '../../volunteers/volunteers.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -12,7 +13,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SchedulindVolunteersComponent implements OnInit{
     days:string[]=[];
-    constructor(private _schedulingService:SchedulingService,private _volunteerService:VolunteersService){
+    constructor(private _schedulingService:SchedulingService,private _volunteerService:VolunteersService,private _router:Router){
       _schedulingService.getScheduling().subscribe(
         data=>{
          this.days=data;console.log(this.days);
@@ -43,5 +44,6 @@ export class SchedulindVolunteersComponent implements OnInit{
       }
       console.log(this.days);
       this._schedulingService.saveScheduling(this.days).subscribe(data=>console.log("from save: ",data))
+      alert("this page is saved");
     }  
 }

@@ -47,11 +47,6 @@ export class EditVolunteerComponent {
    private _volunteer?:Volunteer;
    private _id:string="";
    private days:string[]=[];
-  //  Sunday?:boolean=this.volunteer?.days[0]||false;
-  //  Monday?:boolean=this.volunteer?.days[1]||false;
-  //  Tuesday?:boolean=this.volunteer?.days[2]||false;
-  //  Wednesday?:boolean=this.volunteer?.days[3]||false;
-  //  Thursday?:boolean=this.volunteer?.days[4]||false;
    public get volunteer():Volunteer|undefined{
           return this._volunteer;
    }
@@ -60,7 +55,6 @@ export class EditVolunteerComponent {
    flag1:boolean=false;
    volunteerForm:FormGroup=new FormGroup({});
    saveVolunteerDetails=():void=>{
-    // this.volunteer=this.volunteerForm.value;
     if(this.volunteer!=undefined){
       this.volunteer.days[0]=this.volunteerForm.controls['Sunday'].value;
       this.volunteer.days[1]=this.volunteerForm.controls['Monday'].value;
@@ -68,7 +62,6 @@ export class EditVolunteerComponent {
       this.volunteer.days[3]=this.volunteerForm.controls['Wednesday'].value;
       this.volunteer.days[4]=this.volunteerForm.controls['Thursday'].value;
       console.log(this.volunteer);
-      // this.onSaveVolunteer.emit(this.volunteer);
       this._scheduling.getScheduling().subscribe(
         data=>{this.days=data;
           if(this.volunteer!=undefined){

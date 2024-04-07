@@ -10,8 +10,8 @@ import { SchedulingModule } from '../scheduling/scheduling.module';
 
 const APP_ROUTERS :Route[]=[
   { path: "volunteers", component: VolunteersListComponent },
-  { path: "editVolunteer", component: EditVolunteerComponent }
-  // { path: "editVolunteer/:id", component: EditVolunteerComponent }
+  { path: "editVolunteer", component: EditVolunteerComponent },
+  { path: "editVolunteer/:id", component: EditVolunteerComponent }
 ]
 
 @NgModule({

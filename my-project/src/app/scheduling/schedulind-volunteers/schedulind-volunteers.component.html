@@ -1,5 +1,5 @@
 <p>schedulind-volunteers works!</p>
-<form [formGroup]="schedulingForm">
+<form [formGroup]="schedulingForm" (ngSubmit)="saveScheduling()">
 <table class="table table-sm" [ariaDisabled]="flag">
     <thead>
         <tr>
@@ -11,12 +11,13 @@
     <tbody>
         <tr>
             <td *ngFor="let day of daysOfWeek;let i=index">
-                <select name="" id="" [formControlName]="i" >
+                <select name="" id="" [formControlName]="i" [ngClass]="{'selected': day.valueOf!=null}">
+                    <option value="null"></option>
                     <option *ngFor="let v of this.getVolunteersPerDay(i)" [value]="v.id" >{{v.name}}</option>
                 </select>
             </td>
         </tr>
     </tbody>
 </table>
-<button class="btn btn-primary" (click)="saveScheduling()">Save scheduling</button>
+<button type="submit" class="btn btn-primary" >Save scheduling</button>
 </form>

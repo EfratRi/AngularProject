@@ -14,7 +14,7 @@ getVoluntreesFromServer=():Observable<Volunteer []>=>{
   return this._http.get<Volunteer []>("/api/Volunteers");
 }
 getVolunteerById=(id:string):Observable<Volunteer|undefined>=>{
-  return this._http.get<Volunteer|undefined>(`/api/Volunteers/byId/${id}`);
+  return this._http.get<Volunteer|undefined>("/api/Volunteers/byId/id?id"+id);
   
 }
 updateVolunteer=(volunteerToSave:Volunteer):Observable<Volunteer []>=>{
